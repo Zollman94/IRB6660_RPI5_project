@@ -1,3 +1,5 @@
+# Download model from releases and put in /models/model.pth
+
 RPI 5- MAC: 2C:CF:67:3E:92:26
 IP kamera MAC: E8:B7:23:00:E5:CF
 
