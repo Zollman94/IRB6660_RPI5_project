@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Živý náhled</title>
+</head>
+<body>
+    <h1>Aktuální snímek</h1>
+    <img id="camera" src="{{ url_for('static', filename='image.jpg') }}?v={{ loop.index }}" width="640">
+
+    <script>
+        const img = document.getElementById("camera");
+
+        setInterval(() => {
+            const timestamp = new Date().getTime();
+            img.src = "/static/latest.jpg?v=" + timestamp;
+        }, 2000); // každé 2 sekundy
+    </script>
+</body>
+</html>
