@@ -34,18 +34,20 @@ def measure_width_height(image_path, min_area=1000, mask1_high=MASK1_HIGH, mask1
         # Pokud je kontura dostatečně velká, přidej ji do seznamu
         if area > min_area:
             large_contours.append(contour)
-
+    largest_contour = max(large_contours, key=cv2.contourArea)
     # Pro nakreslení kontur na obrázku
     img_contours = img.copy()
     w = 0
     h = 0
-    for contour in large_contours:
+    x, y, w, h = cv2.boundingRect(largest_contour)
+    cv2.rectangle(img_contours, (x, y), (x + w, y + h), (0, 255, 0), 3)
+    #for contour in large_contours:
         # Získání obdélníku, který obklopuje konturu
-        x, y, w, h = cv2.boundingRect(contour)
+        #x, y, w, h = cv2.boundingRect(contour)
         # Kreslení obdélníku na obrázku
-        cv2.rectangle(img_contours, (x, y), (x + w, y + h), (0, 255, 0), 3)
+        #cv2.rectangle(img_contours, (x, y), (x + w, y + h), (0, 255, 0), 3)
     cv2.imwrite('length_mask.jpg', img_contours)
     return w, h
 
 if __name__ == "__main__":
-    pass
+    print(measure_width_height('test.jpg'))
