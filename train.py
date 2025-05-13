@@ -8,9 +8,9 @@ from torch.utils.data import DataLoader
 
 # === PARAMETRY ===
 DATA_DIR = "dataset/train"
-NUM_CLASSES = sorted(os.listdir("dataset/train"))  # ["0", "1", ..., "13"]
+NUM_CLASSES = len(sorted(os.listdir("dataset/train")))  # ["0", "1", ..., "13"]
 BATCH_SIZE = 8
-NUM_EPOCHS = 20
+NUM_EPOCHS = 25
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # === TRANSFORMACE ===

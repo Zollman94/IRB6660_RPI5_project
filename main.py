@@ -18,7 +18,7 @@ from camera.camera_handler import init_camera, get_frame, release_camera
 
 # Cesty
 MODEL_PATH = "models/model.pth"
-CLASS_NAMES = sorted(os.listdir("dataset/train"))  # počet tříd
+CLASS_NAMES = len(sorted(os.listdir("dataset/train")))  # počet tříd
 CONFIG_YAML = "config.yaml"
 
 # Načtení konfigurace
